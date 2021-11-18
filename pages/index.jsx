@@ -9,14 +9,7 @@ import styles from "../styles/Home.module.css";
 export default function Home() {
   return (
     <div sx={{ height: `calc(100vh - 60px)` }}>
-      <div
-        sx={{
-          variant: "containers.page",
-          display: "flex",
-          alignItems: "center",
-          height: "100%",
-        }}
-      >
+      <div>
         <div className={styles.container}>
           <Head>
             <title>Create Next App</title>
@@ -25,13 +18,9 @@ export default function Home() {
           </Head>
 
           <main className={styles.main}>
-            <h1 sx={{fontSize: 8, my: 0}}>
+            <h1>
               Welcome to <a href="https://nextjs.org">Next.js!</a>
             </h1>
-
-            <Link href="/notes">
-              <a>Notes</a>
-            </Link>
 
             <p className={styles.description}>
               Get started by editing{" "}
@@ -39,9 +28,10 @@ export default function Home() {
             </p>
 
             <div className={styles.grid}>
-              <a href="https://nextjs.org/docs" className={styles.card}>
-                <h2>Documentation &rarr;</h2>
-                <p>Find in-depth information about Next.js features and API.</p>
+              <a href="/notes" className={styles.card}>
+                <h2>Notes &rarr;</h2>
+                <p>
+                  Click here to manage your notes: add, edit, delete and much much more.</p>
               </a>
 
               <a href="https://nextjs.org/learn" className={styles.card}>
@@ -93,4 +83,14 @@ export default function Home() {
       </div>
     </div>
   );
+}
+
+export async function getStaticProps() {
+  return {
+    props: {
+      content: {
+        title: 'Look at my note app tho'
+      }
+    }
+  }
 }
